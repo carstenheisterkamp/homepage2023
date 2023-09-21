@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import NavItem from './NavItem'
-import routes from '../utils/routes'
+import routes from '../data/routes'
 
 export default function Footer() {
   

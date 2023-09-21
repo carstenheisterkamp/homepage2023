@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import routes from '../utils/routes'
+import routes from '../data/routes'
 
 export default function PageContainer() {
     const location = useLocation()
