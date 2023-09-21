@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+}
+
+html {
+    pointer-events: none;
+    user-select: none;
+}
+
+a {
+    pointer-events: all;
+    user-select: all;
+}
