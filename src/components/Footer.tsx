@@ -8,14 +8,12 @@ export default function Footer() {
     .filter((entry)=>entry.location==='footer')
     .map(({name, path}, key) => {
     path = path!.replace(/^\//, '')
-    return <NavItem target={path} name={name!} key={key}/>
+    return <NavItem class='text-s px-2' target={path} name={name!} key={key}/>
   })
     return (
         <footer>
-          <motion.div>
-            <div className="pointer-events-auto z-2 fixed right-10 bottom-[20vh]">
+          <motion.div className="fixed right-0 bottom-0 p-5 z-10">
               { footerRoutes } 
-            </div>
           </motion.div>
         </footer>
     )

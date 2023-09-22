@@ -14,7 +14,7 @@ export default function ButtonTemplate({children, onClick }: Props) {
         onClick={onClick} 
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className='w-full h-full bg-transparent border-none'>
+        className='w-full h-full bg-transparent border-none cursor-pointer'>
         {children}
       </motion.button>
     )

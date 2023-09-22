@@ -1,14 +1,12 @@
-import ButtonTemplate from "./ButtonTemplate";
+import ButtonTemplate from "./ButtonTemplate"
 
 export default function MenuButton() {
-
-    const toggleMenu = () => {
-        console.log("TOGGLE YOLOOO")
-    }
+    
+    const toggleMenu = () => {}
 
     return(
         <ButtonTemplate onClick={ toggleMenu}>
-            Yolo
+            Menu
         </ButtonTemplate>
     )
 }

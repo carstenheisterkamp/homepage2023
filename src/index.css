@@ -13,7 +13,6 @@ html {
     user-select: none;
 }
 
-a {
+a,button {
     pointer-events: all;
-    user-select: all;
 }

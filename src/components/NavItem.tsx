@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom";
 
 interface INavItemProps {
-    target: string;
-    name: string;
+    target: string
+    name: string
+    class: string
 }
 
 const NavItem = (props: INavItemProps) => {
     return(
         <NavLink 
-            className={"text-2xl"}
+            className={props.class}
             to={props.target}
             preventScrollReset={true}
         >

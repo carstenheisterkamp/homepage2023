@@ -2,7 +2,7 @@ import { useRef, useState, useEffect, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-export default function Box(props: any) {
+export default function Box(props) {
   const ref = useRef()
   const [count, setCount] = useState(0)
   const geometry = useMemo(
@@ -11,7 +11,7 @@ export default function Box(props: any) {
   )
 
   useEffect(() => {
-    console.log(ref.current.geometry.uuid)
+   // console.log(ref.current.geometry.uuid)
   })
 
   useFrame((_, delta) => {
