@@ -5,12 +5,12 @@ import Navigation from './components/Navigation'
 
 function App() {
   return (
-    <div className="app w-screen h-screen">
+    <div className=" text-black dark:text-white">
       <BrowserRouter>
         <Navigation/>
         <PageContainer />
+        <GameContainer />
       </BrowserRouter>
-      <GameContainer />
     </div>
   );
 }

@@ -13,6 +13,7 @@
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.84.2",
     "@react-three/fiber": "^8.14.2",
+    "@react-three/postprocessing": "^2.15.1",
     "@types/three": "^0.156.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",

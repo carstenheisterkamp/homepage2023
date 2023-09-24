@@ -6,7 +6,7 @@ export default function Box(props) {
   const ref = useRef()
   const [count, setCount] = useState(0)
   const geometry = useMemo(
-    () => [new THREE.BoxGeometry(), new THREE.SphereGeometry(0.785398)],
+    () => [new THREE.BoxGeometry(2.0), new THREE.SphereGeometry(2.0)],
     []
   )
 
@@ -15,8 +15,8 @@ export default function Box(props) {
   })
 
   useFrame((_, delta) => {
-    ref.current.rotation.x += delta
-    ref.current.rotation.y += 0.5 * delta
+    ref.current.rotation.x += 0.01 * delta
+    ref.current.rotation.y += 0.01 * delta
   })
 
   return (

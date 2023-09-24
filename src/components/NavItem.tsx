@@ -1,20 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom'
+/* import { itemSlide, transition } from '../data/animations' */
+import { motion } from 'framer-motion'
 
 interface INavItemProps {
     target: string
     name: string
-    class: string
+    style: string,
+    i: number
 }
+// <motion.div variants={scale} animate={isActive ? "open" : "closed"} className={styles.indicator}></motion.div>
 
-const NavItem = (props: INavItemProps) => {
+const NavItem = ( props: INavItemProps) => {
+    console.log(props.i)
+
     return(
-        <NavLink 
-            className={props.class}
-            to={props.target}
-            preventScrollReset={true}
+        <motion.li
+            className={props.style}
         >
-            {props.name}
-        </NavLink>
+            <NavLink 
+                to={props.target}
+                preventScrollReset={true}
+            >
+                {props.name}
+            </NavLink>
+        </motion.li>
     )
 }
 
