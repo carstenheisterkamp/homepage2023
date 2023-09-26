@@ -1,46 +1,36 @@
 import {motion} from 'framer-motion'
-import { useState } from 'react';
+import { useUIStore } from '../../hooks/uiStore';
 
-interface Props {
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-const MenuButton = ( {onClick} : Props) => {
-
-    const [isClosed, setIsClosed] = useState('closed')
-
-    const  handleClick = function() {
-        isClosed === 'closed' ? setIsClosed('open') : setIsClosed('closed')
-        onClick()
-    }
+const MenuButton = () => {
+    const uiStore = useUIStore()
+    const navActive = uiStore.navActive
 
     const path01Variants = {
-        open: { d: "M 15 15 L 33 33  " },
-        closed: { d: "M 10 22 L 38 22" }
+        visible: { d: "M15 33 L 33 15" },
+        hidden: { d: "M 10 22 L 38 22" }
       }
 
     const path02Variants = {
-        open: { d: "M15 33 L 33 15" },
-  /*       moving: { d: "M10 28 L 39 28" }, */
-        closed: { d: "M10 28 L 39 28" }
+        visible: { d: "M 15 15 L 33 33  " },
+        hidden: { d: "M10 28 L 39 28" }
       }
 
     return (
         <motion.button 
             type='button' 
-            onClick={handleClick} 
+            onClick={() => uiStore.toggleNav()} 
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
             transition={{duration: 0.5}}
             className='w-full h-full bg-transparent border-none cursor-pointer pointer-events-auto'>
-                <motion.svg className='stroke-black dark:stroke-white' width="48" height="48" viewBox="0 0 48 48" strokeWidth={'2px'} fill='none' xmlns="http://www.w3.org/2000/svg">
+                <motion.svg className='stroke-black dark:stroke-white' width="48" height="48" viewBox="0 0 48 48" strokeWidth={'1px'} fill='none' xmlns="http://www.w3.org/2000/svg">
                     <motion.path
-                    animate={isClosed}
-                    variants={path01Variants}
+                        animate={navActive ? "visible" : "hidden"}
+                        variants={path01Variants}
                     />
                     <motion.path
-                    animate={isClosed}
-                    variants={path02Variants}
+                        animate={navActive ? "visible" : "hidden"}
+                        variants={path02Variants}
                     />
                 </motion.svg>
       </motion.button>

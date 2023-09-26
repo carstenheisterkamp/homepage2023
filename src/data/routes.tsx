@@ -8,10 +8,12 @@ import NetworkPage from '../pages/Network'
 import PrivacyPage from '../pages/Privacy'
 import WorkPage from '../pages/Work'
 
+import  LinkedInLogo from '../assets/svg/linkedin.svg'
+
 const routes = [{
     path: '/',
     element: <HomePage />,
-    name: '/',
+    name: 'Home',
     location: 'main',
   },{
     path: '/about',

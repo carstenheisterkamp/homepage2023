@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
-/* import { itemSlide, transition } from '../data/animations' */
+import { navItemSlide,  navItemTransiton} from '../data/animations'
 import { motion } from 'framer-motion'
+import { useUIStore } from '../hooks/uiStore'
 
 interface INavItemProps {
     target: string
@@ -8,14 +9,18 @@ interface INavItemProps {
     style: string,
     i: number
 }
-// <motion.div variants={scale} animate={isActive ? "open" : "closed"} className={styles.indicator}></motion.div>
 
 const NavItem = ( props: INavItemProps) => {
-    console.log(props.i)
+    const uiStore = useUIStore()
+    const navActive = uiStore.navActive
 
     return(
         <motion.li
             className={props.style}
+            variants={navItemSlide }
+            initial='hidden'
+            animate={navActive ? 'visible' : 'hidden'}
+            transition={navItemTransiton(props.i)}
         >
             <NavLink 
                 to={props.target}
@@ -28,3 +33,4 @@ const NavItem = ( props: INavItemProps) => {
 }
 
 export default NavItem
+

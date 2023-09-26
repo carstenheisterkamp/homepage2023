@@ -12,7 +12,7 @@ function App() {
         <GameContainer />
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App

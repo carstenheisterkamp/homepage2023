@@ -1,16 +1,15 @@
-import { motion, useCycle } from 'framer-motion'
+import { motion } from 'framer-motion'
 import NavItem from './NavItem'
 import routes from '../data/routes'
-import { menuSlide, transition } from '../data/animations';
-import MenuButton from './buttons/MenuButton';
+import { menuSlide, navTransition } from '../data/animations'
+import MenuButton from './buttons/MenuButton'
+import { useUIStore } from '../hooks/uiStore'
+
 
 export default function Navigation() {
+  const uiStore = useUIStore()
+  const navActive = uiStore.navActive
 
-  const [isActive, toggleActive] = useCycle(false, true)
-  const  toggleNav = () => {
-    toggleActive()
-  }
-  
   const mainRoutes = routes
     .filter((entry)=>  entry.location==='main')
     .map(({name, path}, key) => {
@@ -27,34 +26,33 @@ export default function Navigation() {
 
     return (
       <>
-        <div className='yolo fixed top-3 right-3 w-14 h-14 z-20'>
-          <MenuButton onClick={ toggleNav }/>
+        <div className='yolo fixed top-3 right-3 w-14 h-14 z-50'>
+          <MenuButton />
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-50 hover:to-black blur-lg overflow-visible z-[-1]"></div>
         </div>
 
         <motion.div 
           variants={menuSlide}
-          initial="hidden"
-          animate={isActive ? "visible" : "hidden"}
-          transition={transition}
-          className='fixed top-0 px-8 pb-16 w-96 h-full leading-10 backdrop-blur-md z-10'
+          initial={navActive} 
+          animate={navActive ? 'visible' : 'hidden'}
+          transition={navTransition}
+          className='fixed top-0 px-8 pb-16 w-96 h-full leading-10 backdrop-blur-md z-20'
         >
-        <header className='pt-24'>
-          <nav className='flex flex-col'>
-            <motion.ul>
-              { mainRoutes }
-            </motion.ul>
-          </nav>
-        </header>
-        
-        <footer className='absolute bottom-6 left-20'>
-          <nav>
-          <motion.ul>
-          { footerRoutes } 
-          </motion.ul>
-          </nav>
-        </footer>
-
+          <header className='pt-24'>
+            <nav className='flex flex-col'>
+              <ul>
+                { mainRoutes }
+              </ul>
+            </nav>
+          </header>
+          
+          <footer className='absolute bottom-6 left-20'>
+            <nav>
+            <ul>
+            { footerRoutes } 
+            </ul>
+            </nav>
+          </footer>
         </motion.div>
       </> 
     )
