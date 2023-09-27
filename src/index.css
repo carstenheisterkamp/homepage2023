@@ -17,6 +17,6 @@ html, body {
     overflow: auto;
 }
 
-a,button {
+a,p,button {
     pointer-events: all;
 }

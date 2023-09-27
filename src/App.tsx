@@ -2,11 +2,13 @@ import GameContainer from './components/GameContainer'
 import PageContainer from './components/PageContainer'
 import { BrowserRouter  } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import BrandingBar from './components/BrandingBar'
 
 function App() {
   return (
-    <div className=" text-black dark:text-white">
+    <div className='text-black dark:text-white'>
       <BrowserRouter>
+        <BrandingBar/>
         <Navigation/>
         <PageContainer />
         <GameContainer />

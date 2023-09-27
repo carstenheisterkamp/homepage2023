@@ -1,13 +1,17 @@
+const siteSettings = {
+    title: 'Carsten Heisterkamp',
+}
+
 const pageContent = {
     homepage: {
         title: 'Homepage',
-        subtitle: 'This is the sunheadlone',
+        subtitle: 'This is the subtitle',
         intro: 'This is the intro',
         featuredImageUrl: 'imageurl-0',
     },
 aboutpage: {
         title: 'About',
-        subtitle: 'This is the sunheadlone',
+        subtitle: 'This is the subtitle',
         intro: 'This is the intro',
         featuredImageUrl: 'imageurl-1',
     }
@@ -28,6 +32,4 @@ const projectContent = {
     },
 }
 
-
-
-export {pageContent, projectContent}
+export {siteSettings, pageContent, projectContent}

@@ -15,8 +15,8 @@ export default function Box(props) {
   })
 
   useFrame((_, delta) => {
-    ref.current.rotation.x += 0.01 * delta
-    ref.current.rotation.y += 0.01 * delta
+    ref.current.rotation.x += 0.1 * delta
+    ref.current.rotation.y += 0.1 * delta
   })
 
   return (

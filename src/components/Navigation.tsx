@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import NavItem from './NavItem'
 import routes from '../data/routes'
 import { menuSlide, navTransition } from '../data/animations'
-import MenuButton from './buttons/MenuButton'
+import MenuButton from './buttons/NavButton'
 import { useUIStore } from '../hooks/uiStore'
 
 
@@ -14,7 +14,7 @@ export default function Navigation() {
     .filter((entry)=>  entry.location==='main')
     .map(({name, path}, key) => {
     path = path!.replace(/^\//, '')
-    return <NavItem target={path} name={name!} style='text-3xl p-1 w-full' key={key} i={key}/>
+    return <NavItem target={path} name={name!} style='text-3xl p-1 w-full origin-top-left' key={key} i={key}/>
   })
 
   const footerRoutes = routes
@@ -26,9 +26,8 @@ export default function Navigation() {
 
     return (
       <>
-        <div className='yolo fixed top-3 right-3 w-14 h-14 z-50'>
+        <div className='fixed top-3 right-3 w-14 h-14 z-50'>
           <MenuButton />
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-50 hover:to-black blur-lg overflow-visible z-[-1]"></div>
         </div>
 
         <motion.div 
@@ -46,7 +45,7 @@ export default function Navigation() {
             </nav>
           </header>
           
-          <footer className='absolute bottom-6 left-20'>
+          <footer className='absolute bottom-8 left-20'>
             <nav>
             <ul>
             { footerRoutes } 
