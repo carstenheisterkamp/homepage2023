@@ -1,11 +1,18 @@
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'FRAC';
+    src: url("./assets/fonts/FRACTrial-Thin.otf") format("opentype");
+}
 
 * {
     margin: 0;
     padding: 0;  
     box-sizing: border-box;
+  /*   outline:1px red solid; */
 }
 
 html {
@@ -15,8 +22,13 @@ html {
 
 html, body {
     overflow: auto;
+    /* font-family: 'IBM Plex Sans', sans-serif; */
+    font-family: 'FRAC', sans-serif;
+    text-transform: uppercase;
+
 }
 
-a,p,button {
+
+a, p, button {
     pointer-events: all;
 }

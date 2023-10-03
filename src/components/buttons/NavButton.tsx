@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import { useUIStore } from '../../hooks/uiStore';
+import { useUIStore } from '../../stores/uiStore'
 
 const MenuButton = () => {
     const uiStore = useUIStore()
@@ -11,36 +11,29 @@ const MenuButton = () => {
       }
 
     const path02Variants = {
-        visible: { d: "M 15 15 L 33 33  " },
+        visible: { d: "M 15 15 L 33 33" },
         hidden: { d: "M10 28 L 39 28" }
       }
 
     return (
-        <motion.button 
-            type='button' 
-            onClick={() => uiStore.toggleNav()} 
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-            transition={{duration: 0.5}}
-            className='w-full h-full bg-transparent border-none cursor-pointer pointer-events-auto'>
-                <motion.svg className='stroke-black dark:stroke-white' width="48" height="48" viewBox="0 0 48 48" strokeWidth={'1px'} fill='none' xmlns="http://www.w3.org/2000/svg">
-                    <motion.path
-                        animate={navActive ? "visible" : "hidden"}
-                        variants={path01Variants}
-                    />
-                    <motion.path
-                        animate={navActive ? "visible" : "hidden"}
-                        variants={path02Variants}
-                    />
-                </motion.svg>
-              {/*   <motion.div
-                    className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-50 hover:to-black blur-lg overflow-visible z-[-1]"
-                    animate={{ rotate: 360 }}
-                    transition={{ ease: "linear", duration: 16, repeat: Infinity }}
-                >
-                </motion.div> */}
-      </motion.button>
-
+            <motion.button 
+                type='button' 
+                onClick={() => uiStore.toggleNav()} 
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.5 }}
+                transition={{duration: 0.3}}
+                className='w-full h-full bg-transparent border-none cursor-pointer pointer-events-auto'>
+                    <motion.svg className='stroke-black dark:stroke-white' width="48" height="48" viewBox="0 0 48 48" strokeWidth={'1px'} fill='none' xmlns="http://www.w3.org/2000/svg">
+                        <motion.path
+                            animate={navActive ? "visible" : "hidden"}
+                            variants={path01Variants}
+                        />
+                        <motion.path
+                            animate={navActive ? "visible" : "hidden"}
+                            variants={path02Variants}
+                        />
+                    </motion.svg>
+            </motion.button>
     )
 }
 

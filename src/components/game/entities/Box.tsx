@@ -2,8 +2,13 @@ import { useRef, useState, useEffect, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-export default function Box(props) {
+interface IBoxProps {
+  position: Array<number>
+}
+
+export default function Box(props: IBoxProps) {
   const ref = useRef()
+  
   const [count, setCount] = useState(0)
   const geometry = useMemo(
     () => [new THREE.BoxGeometry(2.0), new THREE.SphereGeometry(2.0)],

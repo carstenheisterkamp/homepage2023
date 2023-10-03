@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { navItemSlide,  navItemTransiton} from '../data/animations'
 import { motion } from 'framer-motion'
-import { useUIStore } from '../hooks/uiStore'
+import { useUIStore } from '../stores/uiStore'
 
 interface INavItemProps {
     target: string
@@ -21,10 +21,6 @@ const NavItem = ( props: INavItemProps) => {
             initial='hidden'
             animate={navActive ? 'visible' : 'hidden'}
             transition={navItemTransiton(props.i)}
-            whileHover={{
-                scale: 1.2,
-                transition: { duration: 0.3 },
-              }}
         >
             <NavLink 
                 to={props.target}

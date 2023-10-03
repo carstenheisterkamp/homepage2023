@@ -3,14 +3,26 @@ const siteSettings = {
 }
 
 const pageContent = {
+    aboutpage: {
+            title: 'About',
+            subtitle: 'This is the subtitle',
+            intro: 'This is the intro',
+            featuredImageUrl: 'imageurl-1',
+        },
     homepage: {
-        title: 'Homepage',
-        subtitle: 'This is the subtitle',
-        intro: 'This is the intro',
-        featuredImageUrl: 'imageurl-0',
-    },
-aboutpage: {
-        title: 'About',
+            title: 'Homepage',
+            subtitle: 'This is the subtitle',
+            intro: 'This is the intro',
+            featuredImageUrl: 'imageurl-0',
+        },
+    journalpage: {
+            title: 'Journal',
+            subtitle: 'This is the subtitle',
+            intro: 'This is the intro',
+            featuredImageUrl: 'imageurl-1',
+        },
+    workpage: {
+        title: 'Work',
         subtitle: 'This is the subtitle',
         intro: 'This is the intro',
         featuredImageUrl: 'imageurl-1',

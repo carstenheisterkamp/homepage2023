@@ -10,8 +10,7 @@ export default function GameCanvas() {
             <Canvas 
                 shadows
                 dpr={1.5}   
-               /*  gl={{ alpha: true, stencil: false, depth: false, antialias: false }} */
-               /* onCreated={(state) => (state.gl.toneMappingExposure = 1.5)} */
+               onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
             >
                 <Suspense fallback={<LoadingScreen onStart={()=>console.log('Starting')}/>}>
                     <MainScene />
