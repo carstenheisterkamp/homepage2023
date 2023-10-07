@@ -13,8 +13,8 @@ export default function PageContainer() {
                 <Routes location={location} key={location.pathname} >
                     { routeElements }
                 </Routes>
-                <GlitchAnimation />
             </AnimatePresence>
+            <GlitchAnimation />
         </div>
     )
 }

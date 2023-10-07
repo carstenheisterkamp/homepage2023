@@ -33,11 +33,6 @@ const routes = [{
     name: 'Journal',
     location: 'main',
   },{
-    path: '/play',
-    element: <PlayPage />,
-    name: 'Play',
-    location: 'main',  
-  },{
     path: '/privacy',
     element: <PrivacyPage />,
     name: 'Privacy',

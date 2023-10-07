@@ -1,18 +1,22 @@
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
     font-family: 'FRAC';
-    src: url("./assets/fonts/FRACTrial-Thin.otf") format("opentype");
+    src: url("./assets/fonts/frac/FRACTrial-Thin.otf") format("opentype");
 }
 
 * {
     margin: 0;
     padding: 0;  
     box-sizing: border-box;
-  /*   outline:1px red solid; */
+/* ‚ */
 }
 
 html {
@@ -21,14 +25,15 @@ html {
 }
 
 html, body {
-    overflow: auto;
-    /* font-family: 'IBM Plex Sans', sans-serif; */
-    font-family: 'FRAC', sans-serif;
-    text-transform: uppercase;
-
+    font-family: 'IBM Plex Sans', sans-serif;
+    /* font-family: 'FRAC', sans-serif; */
+   /*  text-transform: uppercase; */
 }
-
 
 a, p, button {
     pointer-events: all;
+}
+
+a {
+    cursor: pointer;
 }

@@ -1,10 +1,13 @@
 import ButtonTemplate from './ButtonTemplate'
+import { toggleFullScreen } from '../../data/utilities'
 import { motion } from 'framer-motion'
 
-const MuteButton = () => {
+
+const FullscreenButton = () => {
     return (
       <ButtonTemplate
         handleClick={() => {
+          toggleFullScreen()
           console.log('CLICK')
         }}
         
@@ -22,4 +25,4 @@ const MuteButton = () => {
       </ButtonTemplate>
     )
 }
-export default MuteButton
+export default FullscreenButton

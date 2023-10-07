@@ -4,7 +4,7 @@ export const navTransition = {
     }
 
 export const navSlide = {
-    visible: { opacity: 1 },
+    visible: { opacity: 1},
     hidden: { opacity: 0 },
 }
 
@@ -14,7 +14,7 @@ export const navItemTransiton = (id: number) =>{
 
 export const navItemSlide = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x:(40)}
+    hidden: { opacity: 0, x:(-40)}
 }
 
 export const pageTransition = {
@@ -30,7 +30,7 @@ export const pageSlide = {
 
 export const glitchTransition = {
     duration: 0.5,
-    times: [0, 0.1, 0.2, 0.3, 0.4, 1],
+    times: [0.1, 0.2, 0.3, 0.4, 1],
     easings: [
       0.42, 0, 0.9, 0,
       0.42, 0, 0.9, 0,

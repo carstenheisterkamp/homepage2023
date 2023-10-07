@@ -1,18 +1,17 @@
 import { NavLink } from 'react-router-dom'
 import { navItemSlide,  navItemTransiton} from '../data/animations'
 import { motion } from 'framer-motion'
-import { useUIStore } from '../stores/uiStore'
+import { useNav } from '../stores/uiStore'
 
-interface INavItemProps {
+interface Props {
     target: string
     name: string
     style: string,
     i: number
 }
 
-const NavItem = ( props: INavItemProps) => {
-    const uiStore = useUIStore()
-    const navActive = uiStore.navActive
+const NavItem = ( props: Props) => {
+    const navActive = useNav()
 
     return(
         <motion.li

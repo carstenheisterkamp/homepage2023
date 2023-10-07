@@ -8,7 +8,7 @@ export default function Footer() {
     .filter((entry)=>entry.location==='footer')
     .map(({name, path}, key) => {
     path = path!.replace(/^\//, '')
-    return <NavItem class='text-s px-2' target={path} name={name!} key={key}/>
+    return <NavItem style='text-s px-2' target={path} name={name!} key={key} i={key}/>
   })
     return (
         <footer>

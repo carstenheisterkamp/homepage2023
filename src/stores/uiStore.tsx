@@ -1,38 +1,33 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
-
-
 interface UIStore {
-    navActive: boolean
-    darkMode: boolean
-    audioMuted: boolean
-    cookiesAllowed: boolean
-    toggleNav: () => void
-    toggleDarkMode:() => void
-    toggleAudioMuted: () => void
-    toggleCookiesAllowed: () => void    
+  theme: string
+  navActive: boolean,
+  setTheme: () => void
+  setNavActive: () => void
 }
 
-export const useUIStore = create<UIStore>()(
+const useUIStore = create<UIStore>()(
   devtools(
   persist(
-    (set) =>({
-      navActive: false,
-      darkMode: false,
-      audioMuted: true  ,
-      cookiesAllowed: false,
-      toggleNav:  () => set((state) => ({ navActive: !state.navActive})),
-      toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode})),
-      toggleAudioMuted: () => set((state) => ({ audioMuted: !state.audioMuted})),
-      toggleCookiesAllowed: () => set((state) => ({ cookiesAllowed: !state.cookiesAllowed}))
-      }),
-      {
-        name: 'uiStore'
-      })
-    )
-)
+    (set, get) => ({
+        theme: "dark",
+        navActive: false,
+        setTheme: () => set((state) => ({
+          ...state,
+          theme: get().theme === "dark" ? "light" : "dark"
+        })),
+        setNavActive: () => set((state) =>({
+          ...state,
+          navActive: get().navActive ? false : true
+        }))  
+      }), {
+        name: 'theme',
+    }
+)))
 
+export const useTheme = () => useUIStore((state) => state.theme)
+export const useSetTheme = () => useUIStore((state) => state.setTheme)
 
-
-
-
+export const useNav = () => useUIStore((state) => state.navActive)
+export const useSetNav= () => useUIStore((state) => state.setNavActive)

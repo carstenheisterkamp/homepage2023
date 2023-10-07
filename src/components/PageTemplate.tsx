@@ -17,7 +17,7 @@ export default function PageTemplate({ children, ...props }: Props) {
     return(
         <>
             <motion.div
-                className='py-20 px-40'
+                className='py-40 px-12'
                 key={location.key}
                 variants={pageSlide}
                 initial={pageSlide.initial}
@@ -25,11 +25,10 @@ export default function PageTemplate({ children, ...props }: Props) {
                 exit={pageSlide.exit}
                 transition={pageTransition}
             >
-                <h1 className='text-6xl mb-4'>{props.title}</h1>    
+                <h1 className='text-8xl mb-4'>{props.title}</h1>    
                 <h2 className="text-4xl mb-2">{props.subtitle}</h2>
-                <p className="text-2xl mb-8">{props.intro}</p>         
+                <h3 className="text-2xl mb-8">{props.intro}</h3>         
                     {children}
-                <div>To Top</div>
             </motion.div> 
         </>
     )

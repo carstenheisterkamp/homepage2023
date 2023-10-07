@@ -4,11 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  /* darkMode: 'class', */
+  darkMode: ['class', '[data-mode="dark"]'],
   theme: {
     extend: {
       colors:{
-        white_02: "rgba(255,255,255,0.2)"
+        white06: "rgba(255,255,255,0.6)",
+        gray08: "rgba(144,144,149,0.8)"
       }
     },
   },
