@@ -25,7 +25,7 @@ function App() {
   }, [theme])
 
   return (
-    <div className='text-black dark:text-white bg-gray-400 dark:bg-zinc-900'>
+    <div className='text-black dark:text-white'>
       <BrowserRouter>
         <BrandingBar/>
         <Navigation/>

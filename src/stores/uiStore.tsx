@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
+
 interface UIStore {
   theme: string
   navActive: boolean,
@@ -17,7 +18,7 @@ const useUIStore = create<UIStore>()(
           ...state,
           theme: get().theme === "dark" ? "light" : "dark"
         })),
-        setNavActive: () => set((state) =>({
+        setNavActive: () => set((state) => ({
           ...state,
           navActive: get().navActive ? false : true
         }))  

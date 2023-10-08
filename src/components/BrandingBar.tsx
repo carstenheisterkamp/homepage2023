@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { siteSettings } from '../data/content'
+import { siteSettings } from '../data/siteConfig'
 
 const BrandingBar = () => {
     

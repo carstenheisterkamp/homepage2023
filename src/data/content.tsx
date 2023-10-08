@@ -1,7 +1,3 @@
-const siteSettings = {
-    title: 'Carsten Heisterkamp',
-}
-
 const pageContent = {
     aboutpage: {
             title: 'About',
@@ -44,4 +40,4 @@ const projectContent = {
     },
 }
 
-export {siteSettings, pageContent, projectContent}
+export { pageContent, projectContent}
