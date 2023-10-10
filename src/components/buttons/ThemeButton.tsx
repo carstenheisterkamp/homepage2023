@@ -18,7 +18,6 @@ const ThemeButton = () => {
       <svg className='
         stroke-black 
         dark:stroke-white
-        b-red
         ' 
         width="48" 
         height="48" 

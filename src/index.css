@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap');   
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-    font-family: 'FRAC';
-    src: url("./assets/fonts/frac/FRACTrial-Thin.otf") format("opentype");
+    font-family: 'FRACbold';
+    src: url("./assets/fonts/frac/FRACTrial-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'FRACRegular';
+    src: url("./assets/fonts/frac/FRACTrial-Regular.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: 'FRACLight';
+    src: url("./assets/fonts/frac/FRACTrial-Light.otf") format("opentype");
 }
 
 * {
@@ -19,19 +30,21 @@
 }
 
 html {
-    pointer-events: none;
-    user-select: none;
+/*     pointer-events: none;
+    user-select: none; */
 }
 
 html, body {
-/*     font-family: 'IBM Plex Sans', sans-serif; */
-    font-family: 'FRAC', sans-serif;
+    font-family: 'FRACLight', monospace;
+/*     font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Mono', monospace; */
+/*     font-family: 'FRAC', sans-serif; */
     text-transform: uppercase;
-   /*  text-transform: uppercase; */
 }
 
 a, p, button {
     pointer-events: all;
+    text-transform: uppercase;
 }
 
 a {

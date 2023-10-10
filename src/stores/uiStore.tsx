@@ -13,6 +13,7 @@ const useUIStore = create<UIStore>()(
   persist(
     (set, get) => ({
         theme: "dark",
+        fullScreen: false,
         navActive: false,
         setTheme: () => set((state) => ({
           ...state,

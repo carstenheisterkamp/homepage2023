@@ -14,7 +14,7 @@ const Navigation = () => {
     .filter((entry)=>  entry.location==='main')
     .map(({name, path}, key) => {
     path = path!.replace(/^\//, '')
-    return <NavItem target={path} name={name!} style='text-4xl py-1 w-full origin-top-left' key={key} i={key}/>
+    return <NavItem target={path} name={name!} style='text-xl py-1 w-full origin-top-left' key={key} i={key}/>
   })
 
     return (
