@@ -25,9 +25,9 @@ export default function PageTemplate({ children, ...props }: Props) {
                 exit={pageSlide.exit}
                 transition={pageTransition}
             >
-                <h1 className='text-8xl mb-4'>{props.title}</h1>    
-                <h2 className="text-4xl mb-2">{props.subtitle}</h2>
-                <h3 className="text-2xl mb-8">{props.intro}</h3>         
+                <h1 className='text-4xl mb-4'>{props.title}</h1>    
+                <h2 className="text-2xl mb-2">{props.subtitle}</h2>
+                <h3 className="text-xl mb-8">{props.intro}</h3>         
                     {children}
             </motion.div> 
         </>

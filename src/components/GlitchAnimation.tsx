@@ -9,11 +9,12 @@ const GlitchAnimation = () => {
 
   useEffect(() => {
     const opacitysteps: number[] = [0, 0.3, 0.1, 0.4, 0]
-    const heightsteps: string[] = ['0%', '70%%', '60%', '100%']
+    const heightsteps: string[] = ['0%','100%']
     controls.start({ 
                       height: heightsteps, 
                       opacity: opacitysteps 
                     })
+
   }, [location, controls])
 
   return (
@@ -23,14 +24,9 @@ const GlitchAnimation = () => {
         initial={{ height: 0, opacity: 0 }}
         animate={controls}
         transition={{
-          duration: 1,
+          duration: 0.4,
           times: [0.1, 0.2, 0.3, 0.4],
-          easings: [
-            0.42, 0, 0.9, 0,
-            0.42, 0, 0.9, 0,
-            0.42, 0, 0.9, 0,
-            0.42, 0, 0.9, 0,
-          ],
+          easing: '0.42, 0, 0.9, 0'
         }}
       />
   )

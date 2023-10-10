@@ -13,7 +13,7 @@ const ThemeButton = () => {
       handleClick={()=>{
         setTheme()
       }}
-     handleHover={()=>console.log('OVER')}
+     handleHover={()=>{}}
     >
       <svg className='
         stroke-black 
