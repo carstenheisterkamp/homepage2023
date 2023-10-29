@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { navItemSlide,  navItemTransiton} from '../data/animations'
 import { motion } from 'framer-motion'
 import { useNav } from '../stores/uiStore'
+import { useScramble } from '../hooks/scramble'
 
 interface Props {
     target: string
@@ -13,6 +14,14 @@ interface Props {
 const NavItem = ( props: Props) => {
     const navActive = useNav()
 
+    const { ref, replay } = useScramble({ 
+        text: props.name,
+        step: 1,
+        speed: 0.3,
+        tick: 1,
+        overdrive: 42
+      });
+
     return(
         <motion.li
             className={props.style}
@@ -20,13 +29,15 @@ const NavItem = ( props: Props) => {
             initial='hidden'
             animate={navActive ? 'visible' : 'hidden'}
             transition={navItemTransiton(props.i)}
+            onAnimationStart={replay}
+            onPointerEnter={replay}
+            onPointerDown={replay}   
         >
             <NavLink 
                 to={props.target}
                 preventScrollReset={true}
-            >
-                {props.name}
-            </NavLink>
+                ref={ref}
+            />
         </motion.li>
     )
 }

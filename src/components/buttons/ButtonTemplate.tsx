@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion } from "framer-motion"
+import { ReactNode } from "react"
 
 interface Props {
     children?: ReactNode
@@ -18,9 +18,9 @@ const ButtonTemplate = ({ children, ...props }: Props) => {
       onClick={props.handleClick}
       onHoverStart={props.handleHover}
     >
-        {children}
+      {children}
     </motion.button>
-  );
-};
+  )
+}
 
 export default ButtonTemplate

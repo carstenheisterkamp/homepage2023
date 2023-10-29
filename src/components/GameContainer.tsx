@@ -6,11 +6,14 @@ import MainScene from './game/scenes/MainScene'
 
 export default function GameCanvas() {
     return (
-        <div className="fixed h-screen w-screen left-0 top-0 z-[-1] bg-gradient-to-t from-[#f1f6f6] dark:from-[#010101] to-[#e6eaf5] dark:to-[#202022] pointer-events-auto">
+        <div className="fixed h-screen w-screen bg-gradient-to-t from-[#dfdfdf] dark:from-[#000000] to-[#e7f3ff] dark:to-[#101012] left-0 top-0 z-[-1] pointer-events-auto">
             <Canvas 
+                className="bg-transparent"
                 shadows
                 dpr={1.5}   
-               onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+      /*          onCreated={(state) => (
+                state.gl.toneMappingExposure = 1.5
+                )} */
             >
                 <Suspense fallback={<LoadingScreen onStart={()=>console.log('Starting')}/>}>
                     <MainScene />

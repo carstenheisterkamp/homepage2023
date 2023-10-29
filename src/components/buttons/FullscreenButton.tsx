@@ -18,7 +18,6 @@ const FullscreenButton = () => {
     if(document.fullscreenElement !== null) {
       setFS(true)
     } else {
-      console.log("I am not in fullscreen")
       setFS(false)
     }
   }
@@ -30,15 +29,14 @@ const FullscreenButton = () => {
     }})
 
   const path01Variants = {
-    max: { d: "M29 18L35 18L35 24" },
+    max: { d: "M24 18L31 18L31 24" },
     min: { d: "M34 22L28 22L28 16" }
   }
 
   const path02Variants = {
-    max: { d: "M19 29L13 29L13 23" },
+    max: { d: "M23 29L17 29L17 23" },
     min: { d: "M14 25L20 25L20 31" }
   }
-
 
     return (
       <ButtonTemplate
@@ -48,7 +46,7 @@ const FullscreenButton = () => {
         
         handleHover={() => {}}
       >
-        <svg viewBox="0 0 48 48" strokeWidth={'2px'} xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 48 48" strokeWidth={'1px'} xmlns="http://www.w3.org/2000/svg">
           <motion.path 
             className="stroke-black dark:stroke-white fill-none" 
             variants={path01Variants}

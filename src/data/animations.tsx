@@ -1,6 +1,6 @@
 export const navTransition = { 
         ease: [0.455, 0.03, 0.515, 0.955],
-        duration: 0.85 
+        duration: 0.5
     }
 
 export const navSlide = {
@@ -9,12 +9,12 @@ export const navSlide = {
 }
 
 export const navItemTransiton = (id: number) =>{ 
-        return {duration: 0.75, delay: id*0.1 }
-    }
+        return {duration: 0.5, delay: id*0.05 }
+}
 
 export const navItemSlide = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x:(-40)}
+    visible: { x: 0 },
+    hidden: { x: 40}
 }
 
 export const pageTransition = {

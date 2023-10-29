@@ -22,7 +22,7 @@ export default function Box(props) {
     <motion.mesh
       {...props}
       animate={{rotateZ: 360, rotateY: 360 }}
-      transition={{ repeat: Infinity, ease: "linear", duration: 600 }}
+      transition={{ repeat: Infinity, ease: "linear", duration: 6000 }}
       onPointerDown={
         () => {
           setDarkmode(!darkMode)
@@ -33,10 +33,10 @@ export default function Box(props) {
 
       <motion.meshStandardMaterial
         initial="hidden"
-        transition={{ duration: 10 }}
+        transition={{ duration: 30 }}
         animate= { darkMode ? 'visible' : 'hidden'}
         variants={ variants }
-      /*   wireframe */
+        wireframe
       />
     </motion.mesh>
   )

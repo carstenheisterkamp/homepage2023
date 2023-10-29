@@ -11,7 +11,7 @@ interface AudioStore{
   stereoPanorama: number
   volume: number
   samplePlayer: Sampler | null
-  setAudioAllowed: () => void
+  toggleAudioAllowed: () => void
 /*   setIsLoaded: () => void | null
   loadSample: () => void | null */
 }
@@ -27,17 +27,19 @@ const useAudioStore = create<AudioStore>()(
       stereoPanorama: 0.5,
       volume: 1.0,
       samplePlayer:null,
-      setAudioAllowed: () => set((state) => ({
+      toggleAudioAllowed: () => set((state) => ({
         ...state,
         audioAllowed: get().audioAllowed ? false : true
       }))
       }),{
-      name: 'sampler,'
+      name: 'sampler'
     }
   )))
   
   export const useAudioAllowed = () => useAudioStore((state) => state.audioAllowed)
-  export const useSetAudioAllowed = () => useAudioStore((state) => state.setAudioAllowed)
+  export const useToggleAudioAllowed = () => useAudioStore((state) => state.toggleAudioAllowed)
+
+  export const useVolume = () => useAudioStore((state) => state.volume)
 
 
 

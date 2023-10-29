@@ -1,68 +1,61 @@
-import { useEffect } from 'react'
-import { useAudioAllowed, useSetAudioAllowed } from '../../stores/audioStore'
+import { useAudioAllowed, useToggleAudioAllowed } from '../../stores/audioStore'
 import ButtonTemplate from './ButtonTemplate'
-import { motion,  useAnimationControls  } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const MuteButton = () => {
-    const audioAllowed = useAudioAllowed()
-    const setAudioAllowed = useSetAudioAllowed()
-    const controls = useAnimationControls()
+  const audioAllowed = useAudioAllowed()  
+  const toggleAudio = useToggleAudioAllowed()
 
-    const variants = {
-      up:    { d: "M36 24C34.098 22 32.1765 20 30 20C25.6471 20 22.3529 28 18 28C15.8235 28 13.9118 26 12 24" },
-      down:  { d: "M36 24C34.098 26 32.1765 28 30 28C25.6471 28 22.3529 20 18 20C15.8235 20 13.9118 22 12 24" },
-    } 
+  const variantsLeft = {
+    minimized: {d: "M 20, 25 L 20, 23"},
+    maximized: {d: "M 20, 34 L 20, 14"}
+  }
 
-    useEffect(()=>toggleAnimation())
+  const variantsCenter = {
+    minimized: {d: "M 24, 25 L 24, 23"},
+    maximized: {d: "M 24, 34 L 24, 14"}
+  }
 
-    const toggleAnimation = () => {
-      audioAllowed ? controls.start(variants.down) : controls.stop()
-    }
+  const variantsRight = {
+    minimized: {d: "M 28, 25 L 28, 23"},
+    maximized: {d: "M 28, 34 L 28, 14"}
+  }
 
-    return (
-      <ButtonTemplate
-        handleClick={() => {
-          setAudioAllowed()
-          toggleAnimation()
-        }}
-        
-        handleHover={() => {}}
+  const randomizedTransistion = () => {
+    return {
+        duration: 1 + Math.random() * 2,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "mirror",
+        repeatDelay: 0}
+  }
+
+  return (
+    <ButtonTemplate
+      handleClick={()=>{toggleAudio()}}
+      handleHover={() => {}}
+    > 
+      <motion.svg
+      className='stroke-black stroke-1 fill-none dark:stroke-white' 
+      width="48" height="48" viewBox="0 0 48 48" 
+      xmlns="http://www.w3.org/2000/svg"
+      initial='minimized'
+      animate={audioAllowed ? 'maximized' : 'minimized'}
       >
-        <svg viewBox="0 0 48 48" strokeWidth={'2px'} xmlns="http://www.w3.org/2000/svg">
-          <motion.path
-            className="stroke-black dark:stroke-white"
-            style={{
-                strokeWidth: 1,
-                fill: "transparent"
-            }}
-            initial={variants.up}
-            animate={controls}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 1.3,
-              delay: 0.5,
-              ease: "easeInOut",
-            }}
+        <motion.path
+          variants={variantsLeft}
+          transition = {randomizedTransistion()}
         />
-          <motion.path
-            className="stroke-black06 dark:stroke-white06"
-            style={{
-                strokeWidth: 1,
-                fill: "transparent"
-            }}
-            initial={variants.up}
-            animate={controls}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-              duration: 2,
-              times: [0, 0.16, 0.33, 0.5, 0.66, 0.83]
-            }}
-        />
-        </svg> 
-      </ButtonTemplate>
+        <motion.path
+          variants={variantsCenter}
+          transition = {randomizedTransistion()}
+          />
+        <motion.path
+          variants={variantsRight}
+          transition = {randomizedTransistion()}
+          />
+      </motion.svg>
+    </ButtonTemplate> 
     )
 }
 export default MuteButton

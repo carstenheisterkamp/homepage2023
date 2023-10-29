@@ -1,16 +1,20 @@
 import GameContainer from './components/GameContainer'
 import PageContainer from './components/PageContainer'
+import CookieBanner from './components/CookieBanner'
 import { BrowserRouter  } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import BrandingBar from './components/BrandingBar'
 import ToolBar from './components/ToolbBar'
 import { useEffect } from 'react'
-import { useTheme } from './stores/uiStore'
+import { useTheme, useCookies, useDevice, useSetIsTouchDevice } from './stores/uiStore'
 
 
 function App() {
 
-  const theme = useTheme();
+  const device = useDevice()
+  const setIsTouchDevice = useSetIsTouchDevice()
+  const theme = useTheme()
+  const cookiesAccepted = useCookies()
 
   useEffect(() => {
     try {
@@ -22,16 +26,19 @@ function App() {
     } catch (err) {
       console.log('error loading the color theme')
     }
-  }, [theme])
+
+    if (window.matchMedia) {setIsTouchDevice(window.matchMedia("(pointer:coarse)").matches)}
+  }, [theme, device, setIsTouchDevice])
 
   return (
     <div className='text-black dark:text-white'>
+      { cookiesAccepted ? null : <CookieBanner /> } 
       <BrowserRouter>
-        <BrandingBar/>
-        <Navigation/>
-        <ToolBar />
-        <PageContainer />
-        <GameContainer />
+      <BrandingBar/>
+      <Navigation/>
+      <ToolBar />
+      <PageContainer />
+      <GameContainer />
       </BrowserRouter>
     </div>
   )
