@@ -31,7 +31,7 @@ function App() {
   }, [theme, device, setIsTouchDevice])
 
   return (
-    <div className='text-black dark:text-white'>
+    <div className={` dark:text-white ${theme === "dark" ? "text-white" : "text-black"}`}>
       { cookiesAccepted ? null : <CookieBanner /> } 
       <BrowserRouter>
       <BrandingBar/>
