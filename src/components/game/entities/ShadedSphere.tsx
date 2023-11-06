@@ -1,18 +1,22 @@
 import { useFrame } from "@react-three/fiber"
-import BlueWaveShaderMaterial from "../materials/BlueWaveShader"
+/* import BlueWaveShaderMaterial from "../materials/BlueWaveShader" */
+/* import DotShaderMaterial from "../materials/DotShader" */
+import GridShaderMaterial from "../materials/GridShader"
+/* import LineShaderMaterial from "../materials/LineShader" */
 import { useRef } from "react"
 
 const ShadedSphere = (props) => {
     const sphereRef = useRef();
   
     useFrame(({ clock }) => {
-      sphereRef.current.material.uniforms.uTime.value = clock.oldTime * 0.0005;
+      sphereRef.current.material.uniforms.uTime.value = clock.oldTime * 0.0005
     });
   
     return (
       <mesh ref={sphereRef} {...props}>
-        <sphereGeometry args={[3, 64, 64]}/>
-        <shaderMaterial attach="material" args={[BlueWaveShaderMaterial]} />
+        <sphereGeometry args={[6, 64, 64]}/>
+       {/*  <shaderMaterial attach="material" args={[BlueWaveShaderMaterial]} /> */}
+       <shaderMaterial attach="material" args={[GridShaderMaterial]} />
       </mesh>
     );
   };

@@ -1,6 +1,10 @@
 import socials from '../data/socials'
+import { useScrollPosition, usePointerPosition } from '../stores/uiStore'
 
 export default function SocialLinks() {
+
+    const pointerPosition = usePointerPosition()
+    const scrollPosition = useScrollPosition()
 
     const socialLinks = socials
         .map(({url, short}) => {
@@ -8,8 +12,12 @@ export default function SocialLinks() {
     })
     
     return (
-        <div className='grid grid-cols-3'>
-        { socialLinks }
+        <div>
+              <div><p>x: { pointerPosition[0] }, y: { pointerPosition[1] }</p></div>
+              <div><p>Scrolled to: { scrollPosition }</p></div>
+              <div className='grid grid-cols-3'>
+                { socialLinks }
+            </div>
         </div>
     )
 }

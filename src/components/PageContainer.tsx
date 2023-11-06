@@ -8,7 +8,7 @@ export default function PageContainer() {
     const routeElements = routes.map(({path, element}, key) => <Route path={path} element={element} key={key} />)
 
     return (
-        <div className="absolute w-full h-full top-0 left-0 z-[10]">
+        <div className="absolute w-full h-full top-0 left-0 z-[10] scroll-smooth">
             <AnimatePresence mode='wait'>
                 <Routes location={location} key={location.pathname} >
                     { routeElements }

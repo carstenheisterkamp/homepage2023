@@ -6,17 +6,20 @@ import Navigation from './components/Navigation'
 import BrandingBar from './components/BrandingBar'
 import ToolBar from './components/ToolbBar'
 import { useEffect } from 'react'
-import { useTheme, useCookies, useDevice, useSetIsTouchDevice } from './stores/uiStore'
+import { useTheme, useCookies, useIsTouchDevice, useSetIsTouchDevice, useSetPointerPosition } from './stores/uiStore'
 
 
 function App() {
 
-  const device = useDevice()
+  const isTouchDevice = useIsTouchDevice()
   const setIsTouchDevice = useSetIsTouchDevice()
   const theme = useTheme()
   const cookiesAccepted = useCookies()
+  const setPointerPosition = useSetPointerPosition()
+
 
   useEffect(() => {
+
     try {
       const localTheme = JSON.parse(localStorage.getItem('theme') as string);
       if (localTheme) {
@@ -28,10 +31,32 @@ function App() {
     }
 
     if (window.matchMedia) {setIsTouchDevice(window.matchMedia("(pointer:coarse)").matches)}
-  }, [theme, device, setIsTouchDevice])
+
+    if(isTouchDevice) {
+      const handleDeviceOrientation = (event: unknown) => {
+        console.log(event)
+      }
+      window.addEventListener('deviceorientation', handleDeviceOrientation)
+      
+      return () => {
+        window.removeEventListener('deviceorientation', handleDeviceOrientation )
+      }
+    } else {
+      const handlePointerEvent = (event: { clientX: number; clientY: number } ) => {
+        setPointerPosition([event.clientX, event.clientY])
+      }
+
+      window.addEventListener('mousemove', handlePointerEvent)
+    
+      return () => {
+        window.removeEventListener('mousemove', handlePointerEvent )
+      }
+    }
+  })
+  , [theme, isTouchDevice, setIsTouchDevice, setPointerPosition]
 
   return (
-    <div className={` dark:text-white ${theme === "dark" ? "text-white" : "text-black"}`}>
+    <div className={` ${theme === "dark" ? "text-neutral-200" : "text-black"}`}>
       { cookiesAccepted ? null : <CookieBanner /> } 
       <BrowserRouter>
       <BrandingBar/>

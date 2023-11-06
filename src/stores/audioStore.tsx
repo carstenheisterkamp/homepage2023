@@ -5,15 +5,19 @@ import { audioAssets } from "../data/siteConfig"
 
 interface AudioStore{
   audioAllowed: boolean,
-  basURL: string
-  samples: object
-  isLoaded: boolean
-  stereoPanorama: number
-  volume: number
   samplePlayer: Sampler | null
+  samplerConfig: {
+    basURL: string
+    samples: object
+    isLoaded: boolean
+    pan: number
+    volume: number
+  }, 
+  setIsLoaded: () => void | null
+  initSampler: () => void | null
+  playSampler: () => void
   toggleAudioAllowed: () => void
-/*   setIsLoaded: () => void | null
-  loadSample: () => void | null */
+
 }
 
 const useAudioStore = create<AudioStore>()(
@@ -21,17 +25,22 @@ const useAudioStore = create<AudioStore>()(
   persist(
     (set, get) => ({
       audioAllowed: false,
-      samples: audioAssets.samples,
-      basURL: audioAssets.baseUrl,
-      isLoaded: false,
-      stereoPanorama: 0.5,
-      volume: 1.0,
       samplePlayer:null,
+      samplerConfig: {
+        basURL: audioAssets.baseUrl,
+        isLoaded: false,
+        samples: audioAssets.samples,
+        pan: 0.5,
+        volume: 1.0,
+      },
+      setIsLoaded: () =>{},
+      initSampler: () => {},
+      playSampler: () => {},
       toggleAudioAllowed: () => set((state) => ({
         ...state,
         audioAllowed: get().audioAllowed ? false : true
       }))
-      }),{
+    }),{
       name: 'sampler'
     }
   )))
@@ -39,38 +48,4 @@ const useAudioStore = create<AudioStore>()(
   export const useAudioAllowed = () => useAudioStore((state) => state.audioAllowed)
   export const useToggleAudioAllowed = () => useAudioStore((state) => state.toggleAudioAllowed)
 
-  export const useVolume = () => useAudioStore((state) => state.volume)
-
-
-
-/*
-  startSample: () => {
-    if (!set.getState().samplePlayer) {
-      throw new Error("Sample not loaded");
-    }
-    set.getState().samplePlayer.start();
-  },
-
-  stopSample: () => {
-    if (!set.getState().samplePlayer) {
-      throw new Error("Sample not loaded");
-    }
-    set.getState().samplePlayer.stop();
-  },
-
-  setStereoPanorama: (stereoPanorama: number) => {
-    if (!set.getState().samplePlayer) {
-      throw new Error("Sample not loaded");
-    }
-    set.getState().samplePlayer.setStereoPanorama(stereoPanorama);
-    set({ stereoPanorama });
-  },
-
-  setVolume: (volume: number) => {
-    if (!set.getState().samplePlayer) {
-      throw new Error("Sample not loaded");
-    }
-    set.getState().samplePlayer.setVolume(volume);
-    set({ volume });
-  },
-})); */
+  export const useSampler = () => useAudioStore((state) => state.samplerConfig)

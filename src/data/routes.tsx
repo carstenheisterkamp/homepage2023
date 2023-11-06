@@ -3,7 +3,6 @@ import ErrorPage from '../pages/Error'
 import HomePage from '../pages/Home'
 import ImprintPage from '../pages/Imprint'
 import JournalPage from '../pages/Journal'
-import PlayPage from '../pages/Play'
 import PrivacyPage from '../pages/Privacy'
 import WorkPage from '../pages/Work'
 

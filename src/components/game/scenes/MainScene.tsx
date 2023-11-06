@@ -13,7 +13,7 @@ export default function MainScene() {
       <OrbitControls target={[0, 1, 0]} maxPolarAngle={Math.PI / 2} />
 
       <Environment preset="studio">
-    {/*     <Lightformer intensity={8} position={[10, 5, 0]} scale={[10, 50, 1]} onUpdate={(self) => self.lookAt(0, 0, 0)} /> */}
+    <Lightformer intensity={8} position={[10, 5, 0]} scale={[10, 50, 1]} onUpdate={(self) => self.lookAt(0, 0, 0)} /> 
       </Environment>
       
       <ContactShadows scale={150} position={[0.66, 0, 0.66]} opacity={0.75} />
@@ -25,12 +25,10 @@ export default function MainScene() {
       <directionalLight position={[0, 5, -4]} intensity={4} />
       <directionalLight position={[0, -15, -0]} intensity={4} color="green" />
       <spotLight position={[20, 20, 10]} penumbra={1} castShadow angle={0.2} />
-
-
       <Physics gravity={[0, 0, 0]} iterations={10} broadphase="SAP">
-        <ShadedSphere />
-        <Box position={[0, 4, 0]} />
-       {/*  <GLTFFactory url='./assets/models/Greencube.gltf' scale={5.0} position={[0,0,0]} /> */}
+      <Box position={[0, 1, 0]}/>
+      <GLTFFactory url='./assets/models/Greencube.gltf' scale={5.0} position={[0,0,0]} /> 
+      <ShadedSphere />
       
       </Physics>
     </>

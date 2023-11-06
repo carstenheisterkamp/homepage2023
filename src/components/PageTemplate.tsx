@@ -1,9 +1,6 @@
 import { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { useLocation} from 'react-router-dom'
-import { pageSlide, pageTransition } from '../data/animations'
-
-
 interface Props {
     children?: ReactNode,
     title: string,
@@ -13,6 +10,17 @@ interface Props {
 
 export default function PageTemplate({ children, ...props }: Props) {
    const location=useLocation()
+
+   const pageTransition = {
+        ease: [0.455, 0.03, 0.515, 0.955], 
+        duration: 0.5
+    }
+
+    const pageSlide = {
+        initial: { opacity: 0, y:10 },
+        enter: {opacity: 1, y: 0 },
+        exit: {opacity: 0, y: (-10) }
+    } 
 
     return(
         <>

@@ -14,7 +14,6 @@ export default {
         black03: "rgba(0,0,0,0.3)",
         red01: "#E92A31",
         gray08: "rgba(144,144,149,0.8)",
-        bglight: "#8C9D9C",
       }
     },
   },

@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
 import * as THREE from 'three'
 import {motion} from 'framer-motion-3d'
-
+import { Html } from '@react-three/drei'
+import SocialLinks from '../../SocialLinks'
 
 export default function Box(props) {
   
@@ -38,6 +39,15 @@ export default function Box(props) {
         variants={ variants }
         wireframe
       />
+       <Html 
+          as='div'
+          transform={true}
+        >
+          <SocialLinks />
+  
+     {/*      <h1 className="text-8xl">hello</h1>
+          <p className="text-4xl">world</p>   */}
+        </Html>
     </motion.mesh>
   )
 }
