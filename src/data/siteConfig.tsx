@@ -2,6 +2,24 @@ export const siteSettings = {
     title: 'Carsten Heisterkamp',
 }
 
+export const phrases = [
+    "Audiovisual Explorations",
+    "Computational Design",
+    "Creative Coding",
+    "Critical Technology",
+    "Digital Literacy",
+    "Experience Design",
+    "Generative Art",
+    "Poetic Computation",
+    "Immersive Media",
+    "Interacton Design",
+    "Music Live Coding",
+    "Spatial Computing",
+    "Tangible Interfaces",
+    "Technology Consultancy",
+    "Open Source"
+]
+
 export const audioAssets = {
     baseUrl: '/assets/audio/sounds/',
     samples: {

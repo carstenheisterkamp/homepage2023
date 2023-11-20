@@ -1,11 +1,11 @@
-import { Vector2 } from "three"
+import { Vector2, Vector3 } from "three"
 
 const GridShaderMaterial = {
     uniforms: {
         uTime: { value: 0 },
         vUv: { value: new Vector2() },
         vOrder: { value: 0 },
-
+        uColor: { value: 0 },
     },
     vertexShader: `
       uniform float uTime;
@@ -18,10 +18,10 @@ const GridShaderMaterial = {
 
         vec2 dist = vec2(modelPosition.x,modelPosition.z);
         
-        float radius = sin(uTime*.5);
-        float elevation = 0.7 * sin(-PI * length(dist) * 3. + uTime * 2.7);
+        float radius = sin(uTime*10.5);
+        float elevation = 1.7 * sin(-PI * length(dist*0.01) * 2. + uTime * 1.7);
         
-        modelPosition.y += elevation*.1;   
+        modelPosition.y += elevation*2.1;   
         
         vec4 viewPosition = viewMatrix * modelPosition;
         
@@ -30,10 +30,11 @@ const GridShaderMaterial = {
     }`,
     fragmentShader: `
     varying vec2 vUv;
+    uniform float uColor;
     
     void main() {
-        float strength = 1. - step(.1, mod(vUv.y * 30.1,0.9)) * step(.1, mod(vUv.x * 30.1,0.9));
-        vec3 color = vec3(0.0);
+        float strength = 1. - step(.1, mod(vUv.y * 100.1,0.9)) * step(.1, mod(vUv.x * 100.1,0.9));
+        vec3 color = vec3(uColor, uColor, uColor);
         gl_FragColor = vec4(strength * color, strength);
     }`
   };

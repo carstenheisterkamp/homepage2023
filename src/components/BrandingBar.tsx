@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { siteSettings } from '../data/siteConfig'
 import { useScramble } from '../hooks/scramble'
+import { useIsTouchDevice } from '../stores/uiStore'
 
 const BrandingBar = () => {
+    const isMobile = useIsTouchDevice();
 
     const { ref, replay } = useScramble({ 
-        text: siteSettings.title,
+        text: isMobile ? 'CH' : siteSettings.title,
         step: 1,
         overdrive: 42,
       })
@@ -17,8 +19,7 @@ const BrandingBar = () => {
                 to='/'
                 ref={ref}
                 onMouseEnter={replay}
-                onPointerDown={replay}
-                onClick={ (event) => event.preventDefault()}
+                onClick={ ()=> isMobile ? replay : ''}
             >
             </Link>
         </div>

@@ -1,5 +1,4 @@
 import GameContainer from './components/GameContainer'
-import PageContainer from './components/PageContainer'
 import CookieBanner from './components/CookieBanner'
 import { BrowserRouter  } from 'react-router-dom'
 import Navigation from './components/Navigation'
@@ -16,7 +15,6 @@ function App() {
   const theme = useTheme()
   const cookiesAccepted = useCookies()
   const setPointerPosition = useSetPointerPosition()
-
 
   useEffect(() => {
 
@@ -62,7 +60,6 @@ function App() {
       <BrandingBar/>
       <Navigation/>
       <ToolBar />
-      <PageContainer />
       <GameContainer />
       </BrowserRouter>
     </div>

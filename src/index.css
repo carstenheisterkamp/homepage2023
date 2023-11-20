@@ -9,6 +9,11 @@
 
 
 @font-face {
+    font-family: 'Coanda';
+    src: url('./assets/fonts/coanda/CoandaTRIAL-Bold.otf') format("opentype");
+}
+
+@font-face {
     font-family: 'Space Grotesk';
     src: url('./assets/fonts/space/SpaceGrotesk-Light.otf') format("opentype");
 }
@@ -41,7 +46,6 @@ html {
 
 html, body {
     font-family: 'Space Grotesk', Arial, Helvetica, sans-serif; 
-/*     text-transform: uppercase; */
 }
 
 a, button {
@@ -53,7 +57,8 @@ a {
     cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, nav {
+    font-family: 'Coanda', Arial, Helvetica, sans-serif; 
     text-transform: uppercase;
 }
 

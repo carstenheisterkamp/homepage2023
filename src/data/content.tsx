@@ -5,12 +5,6 @@ const pageContent = {
             intro: 'This is the intro',
             featuredImageUrl: 'imageurl-1',
         },
-    homepage: {
-            title: 'Homepage',
-            subtitle: 'This is the subtitle',
-            intro: 'This is the intro',
-            featuredImageUrl: 'imageurl-0',
-        },
     journalpage: {
             title: 'Journal',
             subtitle: 'This is the subtitle',
